@@ -9,11 +9,11 @@ if 'REDISCLOUD_URL' in os.environ and 'REDISCLOUD_PORT' in os.environ and 'REDIS
      packages.append('django-redis-cache')
      packages.append('hiredis')
 
-setup(name='YourAppName',
+setup(name='Foodtruckie',
       version='1.0',
-      description='OpenShift App',
-      author='Your Name',
-      author_email='example@example.com',
+      description='Web and mobile app for updating foodtruck location status.',
+      author='Tomas Castro',
+      author_email='tomas.caslo90.web@gmail.com',
       url='https://pypi.python.org/pypi',
       install_requires=packages,
 )
