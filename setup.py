@@ -3,7 +3,9 @@ from setuptools import setup
 import os
 
 # Put here required packages
-packages = ['Django<=1.6',]
+packages = ['Django<=1.6',
+	'psycopg2',
+	'django-tastypie',]
 
 if 'REDISCLOUD_URL' in os.environ and 'REDISCLOUD_PORT' in os.environ and 'REDISCLOUD_PASSWORD' in os.environ:
      packages.append('django-redis-cache')
