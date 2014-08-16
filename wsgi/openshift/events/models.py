@@ -1,5 +1,5 @@
 from django.db import models
-from foodtruck import Foodtruck
+from foodtruck.models import Foodtruck
 
 class Event(models.Model):
 	name = models.CharField(max_length=40)
@@ -14,21 +14,21 @@ class Event(models.Model):
 	opening_time = models.DateTimeField(blank=True, null=True)
 	closing_time = models.DateTimeField(blank=True, null=True)
 	description = models.TextField(blank=True, null=True)
-	poster models.URLField(blank=True,null=True)
+	poster = models.URLField(blank=True,null=True)
 	CANCELED = 'CN'
 	ON = 'ON'
 	DELAYED = 'DL'
 	POSTPONE = 'PP'
-    STATUS_CHOICES = (
-        (ON, 'On'),
-	    (CANCELED, 'Canceled'),
-	    (DELAYED, 'Delayed'),
-	    (POSTPONE, 'Postponed'),
-    )
-    status = models.CharField(max_length=2,
-                                      choices=STATUS_CHOICES,
-                                      default=ON)
-    lineup = models.ManyToManyField(Foodtruck, verbose_name="Lineup",blank=True, null=True)
+	STATUS_CHOICES = (
+		(ON, 'On'),
+		(CANCELED, 'Canceled'),
+		(DELAYED, 'Delayed'),
+		(POSTPONE, 'Postponed'),
+	)
+	status = models.CharField(max_length=2,
+								choices=STATUS_CHOICES,
+								default=ON)
+	lineup = models.ManyToManyField(Foodtruck, verbose_name="Lineup",blank=True, null=True)
 
-    def __str__(self):
-        return self.name
+	def __str__(self):
+		return self.name
