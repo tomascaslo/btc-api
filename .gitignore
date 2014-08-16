@@ -11,4 +11,3 @@ venv/
 virtenv/
 dist/
 build/
-local_settings*
