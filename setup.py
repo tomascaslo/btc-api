@@ -11,9 +11,9 @@ if 'REDISCLOUD_URL' in os.environ and 'REDISCLOUD_PORT' in os.environ and 'REDIS
      packages.append('django-redis-cache')
      packages.append('hiredis')
 
-setup(name='Foodtruckie',
+setup(name='Bitcoindir',
       version='1.0',
-      description='Web and mobile app for updating foodtruck location status.',
+      description='Web app for locating bitcoin related businesses.',
       author='Tomas Castro',
       author_email='tomas.caslo90.web@gmail.com',
       url='https://pypi.python.org/pypi',

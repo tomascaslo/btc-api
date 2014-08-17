@@ -66,11 +66,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'psycopg2',
     'tastypie',
-    # Foodtruckie apps
-    'foodtruck',
-    'events',
-    'users',
-    'payments',
 )
 
 MIDDLEWARE_CLASSES = (
