@@ -66,6 +66,14 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'psycopg2',
     'tastypie',
+    'guardian',
+    # Bitcoindir related apps
+    'base',
+    'users',
+    'products',
+    'businesses',
+    'payments',
+    'users',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -148,3 +156,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, '..', 'static')
 STATIC_URL = '/static/'
+
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'guardian.backends.ObjectPermissionBackend',
+)
+
+# For guardian that supports anonymous user
+ANONYMOUS_USER_ID = -1
+
+AUTH_USER_MODEL = 'users.CustomUser'
