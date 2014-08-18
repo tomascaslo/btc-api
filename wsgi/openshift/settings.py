@@ -67,6 +67,7 @@ INSTALLED_APPS = (
     'psycopg2',
     'tastypie',
     'guardian',
+    'south',
     # Bitcoindir related apps
     'base',
     'users',
