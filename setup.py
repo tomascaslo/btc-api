@@ -7,7 +7,10 @@ packages = ['Django<=1.6',
 	'psycopg2',
 	'django-tastypie',
   'django-guardian',
-  'South',]
+  'South',
+  'python-mimeparse==0.1.4',
+  'python-dateutil==2.1',
+  'simplejson==3.3.0',]
 
 if 'REDISCLOUD_URL' in os.environ and 'REDISCLOUD_PORT' in os.environ and 'REDISCLOUD_PASSWORD' in os.environ:
      packages.append('django-redis-cache')

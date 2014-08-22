@@ -31,21 +31,22 @@ class BusinessOwnerResource(ModelResourceCustom):
 	class Meta:
 		resource_name = 'business_owner'
 		queryset = BusinessOwner.objects.all()
-		detail_allowed_methods = ['get', 'post', 'patch']
-		list_allowed_methods = ['get']
+		allowed_methods = ['post']
 		excludes = ['last_name', 'is_staff', 'is_superuser', 'password', 'is_active',
 					'conekta_user_token']
 		fields_to_save = ['phone', 'password', 'password2', 'first_name', 'email',
 						'username', 'permissions']
 		fields_to_patch = ['phone', 'password', 'password2', 'first_name', 'permissions']
-		authentication = SessionAuthentication()
-		authorization = BusinessOwnerAuthorization()
+		# authentication = SessionAuthentication()
+		authorization = Authorization()
 
 	def obj_create(self, bundle, **kwargs):
 		# Clean elements not desired for saving
 		for key in bundle.data.keys():
 			if key not in self._meta.fields_to_save:
 				bundle.data.pop(key)
+
+		print "TESTEEEEEEEEEEM"
 
 		permissions = bundle.data.get('permissions', [])
 		bundle = super(BusinessOwnerResource, self).obj_create(bundle, **kwargs)
@@ -110,11 +111,12 @@ class BusinessOwnerResource(ModelResourceCustom):
 
 		user = None
 		logged_in = False
-
+		print "TEEEEEEST", username, password
 		try: 
 			form = AuthenticationForm(data={
 				'username': username, 'password': password
 				})
+			print form.is_valid()
 			if form.is_valid():
 				user = form.get_user()
 				if user:
