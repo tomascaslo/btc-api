@@ -10,7 +10,7 @@ from django.views.decorators.csrf import csrf_exempt
 class ModelCleanedDataFormValidation(CleanedDataFormValidation):
     """
     Clase para validar modelos, esto evita que los FORMS marquen errores con
-    los foreignn key que llegan como resource_uris
+    los foreign key que llegan como resource_uris
     """
     def uri_to_pk(self, uri):
         """

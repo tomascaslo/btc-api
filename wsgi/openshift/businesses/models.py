@@ -14,6 +14,8 @@ class BusinessCategory(models.Model):
 		return self.name
 
 class BusinessLocation(models.Model):
+	business = models.ForeignKey('Business')
+
 	latitude = models.FloatField()
 	longitude = models.FloatField()
 	city = models.CharField(max_length=100)
@@ -28,11 +30,13 @@ class BusinessLocation(models.Model):
 
 class Business(models.Model):
 	user = models.ForeignKey('users.BusinessOwner')
+
 	name = models.CharField(max_length=250)
 	real_name = models.CharField(max_length=250, blank=True)
 	description = models.TextField()
 	logo_url = models.CharField(max_length=200, blank=True)
 	website = models.CharField(max_length=200, blank=True)
+	is_freelance = models.BooleanField(default=True)
 	has_physical_location = models.BooleanField(default=False)
 	phone = models.CharField(max_length=20, blank=True)
 	phone2 = models.CharField(max_length=20, blank=True)
